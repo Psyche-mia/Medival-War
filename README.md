@@ -1,4 +1,4 @@
 # Medival-War
 This is a group project website game.
 
-![avatar](http://baidu.com/pic/doge.png)
+[![Build Status](http://github.com/Psyche-mia/Medival-war/raw/master/img/Pages_structure.jpg)]
