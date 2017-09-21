@@ -1,0 +1,230 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.14
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: 2015-11-30 07:34:24
+-- 服务器版本： 5.6.26
+-- PHP Version: 5.6.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `MedivalWar`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `AdjacentCity`
+--
+
+CREATE TABLE IF NOT EXISTS `AdjacentCity` (
+  `FortressID` int(2) NOT NULL,
+  `AdjID1` int(2) NOT NULL,
+  `AdjID2` int(2) NOT NULL,
+  `AdjID3` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `AdjacentCity`
+--
+
+INSERT INTO `AdjacentCity` (`FortressID`, `AdjID1`, `AdjID2`, `AdjID3`) VALUES
+(1, 4, 5, 10),
+(2, 5, 7, 8),
+(3, 6, 9, 13),
+(4, 1, 10, 11),
+(5, 1, 2, 7),
+(6, 3, 13, 13),
+(7, 2, 5, 9),
+(8, 2, 13, 13),
+(9, 3, 7, 12),
+(10, 1, 4, 13),
+(11, 4, 13, 13),
+(12, 9, 13, 13);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Forces`
+--
+
+CREATE TABLE IF NOT EXISTS `Forces` (
+  `ForcesID` int(1) NOT NULL,
+  `ForcesName` varchar(20) NOT NULL,
+  `Emperor` varchar(20) NOT NULL,
+  `UserID` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `Forces`
+--
+
+INSERT INTO `Forces` (`ForcesID`, `ForcesName`, `Emperor`, `UserID`) VALUES
+(1, 'Duchy of Saxony', 'Otto III', 0),
+(2, 'Duchy of Bavaria', 'Arnulf', 0),
+(3, 'Kingdom of Italy', 'Gherarduccio', 0),
+(4, 'Free', 'God', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Fortresses`
+--
+
+CREATE TABLE IF NOT EXISTS `Fortresses` (
+  `FortressID` int(2) NOT NULL,
+  `FortressName` varchar(20) NOT NULL,
+  `MaxAgriculture` int(4) NOT NULL,
+  `MaxBusiness` int(4) NOT NULL,
+  `Food` int(5) NOT NULL DEFAULT '5000',
+  `Currency` int(5) NOT NULL DEFAULT '5000',
+  `Loyalty` int(3) NOT NULL,
+  `Troops` int(5) NOT NULL,
+  `Ownership` int(1) NOT NULL,
+  `Agriculture` int(4) NOT NULL,
+  `Business` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `Fortresses`
+--
+
+INSERT INTO `Fortresses` (`FortressID`, `FortressName`, `MaxAgriculture`, `MaxBusiness`, `Food`, `Currency`, `Loyalty`, `Troops`, `Ownership`, `Agriculture`, `Business`) VALUES
+(1, 'Mainz', 4570, 4620, 5000, 5000, 80, 0, 1, 400, 400),
+(2, 'Regensburg', 4690, 4310, 5000, 5000, 80, 0, 2, 400, 400),
+(3, 'Rome', 4270, 4980, 5000, 5000, 80, 0, 3, 400, 400),
+(4, 'Cologne', 3410, 3270, 5000, 5000, 70, 0, 1, 300, 300),
+(5, 'Worms', 3680, 2960, 5000, 5000, 70, 0, 1, 300, 300),
+(6, 'Naples', 2730, 3990, 5000, 5000, 70, 0, 3, 300, 300),
+(7, 'Verona', 2540, 2450, 5000, 5000, 60, 0, 2, 200, 200),
+(8, 'Vienna', 2250, 2630, 5000, 5000, 60, 0, 2, 200, 200),
+(9, 'Florence', 2740, 2140, 5000, 5000, 60, 0, 3, 200, 200),
+(10, 'Aachen', 1580, 1690, 5000, 5000, 50, 0, 1, 100, 100),
+(11, 'Bremen', 1940, 1330, 5000, 5000, 50, 0, 1, 100, 100),
+(12, 'Pisa', 1320, 1880, 5000, 5000, 50, 0, 3, 100, 100),
+(13, 'World', 0, 0, 5000, 5000, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Units`
+--
+
+CREATE TABLE IF NOT EXISTS `Units` (
+  `UnitID` int(1) NOT NULL,
+  `UnitName` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `Units`
+--
+
+INSERT INTO `Units` (`UnitID`, `UnitName`) VALUES
+(1, 'Footman'),
+(2, 'Knight'),
+(3, 'Archer'),
+(4, 'Wizard'),
+(5, 'Peltast'),
+(6, 'Emperor');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Warriors`
+--
+
+CREATE TABLE IF NOT EXISTS `Warriors` (
+  `WarriorID` int(2) NOT NULL,
+  `WarriorName` varchar(20) NOT NULL,
+  `Level` int(2) NOT NULL,
+  `STR` int(3) NOT NULL,
+  `DEF` int(3) NOT NULL,
+  `DEX` int(3) NOT NULL,
+  `INT` int(3) NOT NULL,
+  `LUK` int(3) NOT NULL,
+  `CMD` int(3) NOT NULL,
+  `Troops` int(5) NOT NULL,
+  `Unit` int(1) NOT NULL,
+  `Ownership` int(1) NOT NULL,
+  `Location` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `Warriors`
+--
+
+INSERT INTO `Warriors` (`WarriorID`, `WarriorName`, `Level`, `STR`, `DEF`, `DEX`, `INT`, `LUK`, `CMD`, `Troops`, `Unit`, `Ownership`, `Location`) VALUES
+(1, 'Andrea', 1, 81, 80, 65, 32, 26, 76, 100, 1, 4, 13),
+(2, 'Clementione', 1, 36, 44, 71, 79, 60, 58, 100, 4, 4, 13),
+(3, 'Charles', 1, 92, 50, 79, 34, 33, 64, 100, 2, 4, 13),
+(4, 'Otto III', 1, 78, 73, 82, 81, 65, 95, 100, 6, 1, 1),
+(5, 'Thankmar', 1, 75, 67, 97, 67, 58, 86, 100, 1, 1, 1),
+(6, 'Bernard I', 1, 80, 71, 54, 55, 38, 60, 100, 1, 1, 1),
+(7, 'Bernard II', 1, 55, 90, 32, 37, 57, 66, 100, 5, 1, 4),
+(8, 'Ordulf', 1, 96, 68, 58, 56, 41, 46, 100, 2, 1, 4),
+(9, 'Herman', 1, 31, 46, 78, 83, 88, 55, 100, 4, 1, 5),
+(10, 'Wichman', 1, 25, 57, 81, 76, 58, 51, 100, 4, 1, 5),
+(11, 'Gregory', 1, 46, 66, 45, 65, 71, 43, 100, 3, 1, 10),
+(12, 'Rudolf', 1, 56, 51, 63, 21, 43, 39, 100, 3, 1, 11),
+(13, 'Arnulf', 1, 82, 65, 57, 85, 73, 92, 100, 6, 2, 2),
+(14, 'Eberhard', 1, 91, 83, 45, 43, 28, 81, 100, 1, 2, 2),
+(15, 'Luitpold', 1, 61, 31, 90, 67, 88, 78, 100, 3, 2, 2),
+(16, 'Lothair', 1, 65, 87, 23, 28, 43, 66, 100, 5, 2, 7),
+(17, 'Alexander', 1, 19, 44, 70, 91, 65, 58, 100, 4, 2, 7),
+(18, 'Maximilian', 1, 43, 56, 72, 73, 56, 42, 100, 2, 2, 8),
+(19, 'Henry III', 1, 62, 65, 46, 55, 43, 46, 100, 2, 2, 8),
+(20, 'Gherarduccio', 1, 72, 68, 98, 81, 75, 89, 100, 6, 3, 3),
+(21, 'Alessandro', 1, 34, 29, 51, 99, 89, 86, 100, 4, 3, 3),
+(22, 'Frederick', 1, 91, 77, 19, 21, 38, 81, 100, 1, 3, 3),
+(23, 'Bernardino', 1, 43, 95, 56, 16, 42, 77, 100, 5, 3, 6),
+(24, 'Lotteringo', 1, 79, 31, 85, 37, 56, 68, 100, 2, 3, 6),
+(25, 'Cione', 1, 66, 68, 36, 47, 91, 59, 100, 1, 3, 9),
+(26, 'Noldo', 1, 48, 71, 43, 67, 41, 47, 100, 3, 3, 9),
+(27, 'Cece', 1, 56, 54, 71, 52, 75, 43, 100, 3, 3, 12);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `AdjacentCity`
+--
+ALTER TABLE `AdjacentCity`
+  ADD PRIMARY KEY (`FortressID`);
+
+--
+-- Indexes for table `Forces`
+--
+ALTER TABLE `Forces`
+  ADD PRIMARY KEY (`ForcesID`);
+
+--
+-- Indexes for table `Fortresses`
+--
+ALTER TABLE `Fortresses`
+  ADD PRIMARY KEY (`FortressID`);
+
+--
+-- Indexes for table `Units`
+--
+ALTER TABLE `Units`
+  ADD PRIMARY KEY (`UnitID`);
+
+--
+-- Indexes for table `Warriors`
+--
+ALTER TABLE `Warriors`
+  ADD PRIMARY KEY (`WarriorID`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
