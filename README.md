@@ -48,6 +48,22 @@ Location: It is the current location of the warrior or units.
 
 # Main map
 Once the user click on the icon of a fortress, the buttons of command and battle will be shown at the right. He or she can choose either command to develop the fortress or battle to conquer enemy’s fortress.
-
 Every warrior can be assigned only one task, and the fortress will have return accordingly at the end of the turn.
+
+# Commands
+Farming: The task will consume 1000 value of money, and increase Random(50, 150) value of Agriculture, until the value of Agriculture reaches its maximum value.
+Business: It will consume 1000 value of money, and increase Random(50, 150) value of Business, until the value of Business reaches its maximum value.
+Searching: This action may increase Random(50, 150) value of money and food, and also these is 2% chance to find new warrior to join the power.
+Plundering: It will increase Random(1000, 2000) value of money and food, however, the loyalty will be decreased by Random(2, 6) and the value of Agriculture and Business will be decreased by a random value between 100 and 300.
+Administration: This will consume 2500 value of money to increase loyalty by a random value between 1 and 3.
+Conscription:  It will cost 1000 value of money to increase Troops by 500 to 1500. The maximum value of Troops is 99999.
+Distribution: This command is to assign troops to warriors. The maximum of troops that a warrior have is calculated by the equation: (level of the warrior)*200+(CMD)*100
+Transportation: The user can choose this task to transport food, money or Troops. There is a 5% chance to lose these stuffs or Troops.
+
+# Battle
+This button is located besides the main map. It is a special command in this game, where users can ask warriors (maximum 4 warriors) to take a certain quantity of food (maximum value of food that warrior can take is 9000) entering a enemy’s fortress to fight with the local warriors and troops. If the user wins the battle, he or she will occupy the fortress.
+When users click the button of battle, he or she will be asked to choose warriors and the value of food to take. The target fortress must be a city nearby. The battle will be finished automatically according to the values, where users don't have to operate. The battle is turn-based, where attacks are did in a specific sequence and the target of attack is chose randomly. Warriors will be asked to return to their own fortress if the troops are decreased to 0.
+The determinant of a battle is the value of food. The food will decrease 300 each time. The battle will be ended when food of a power is decreased to 0, and the fortress with its food being 0 will be the loser in this battle and lose a warrior randomly, who can be searched by a certain chance if the user use the command searching. Warriors of the winner will increase their levels by 1. 
+When the battle is finished, the webpage will return to the main map and start the next turn. 
+
 
