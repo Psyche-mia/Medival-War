@@ -1,6 +1,7 @@
 # Medival-War
 
 @Author Jiao Shiqi | Xu Haoran | Wei Lai | Wang Tianying
+
 This is a group project website game.
 
 This mini project aims at building a web page game called Medieval War, setting Holy Roman Empire as the background. The game includes three main parts, login system: administration system and battle system; and two databases: user database and game database.
