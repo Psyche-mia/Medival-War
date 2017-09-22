@@ -1,7 +1,15 @@
 # Medival-War
+
+@Author Jiao Shiqi | Xu Haoran | Wei Lai | Wang Tianying
 This is a group project website game.
 
 This mini project aims at building a web page game called Medieval War, setting Holy Roman Empire as the background. The game includes three main parts, login system: administration system and battle system; and two databases: user database and game database.
+
+# Build Instrucation
+
+-Set up server like XAMPP.
+-Import pages files and img folder into htdoc foler.
+-Import database files medieval.sql and MedievalWar.sql into database in phpMyadmin.
 
 # Background
 Holy Roman Empire of Medieval period is set as the background of the game, with three powers, Duchy of Saxony, Duchy of Bavaria and Kingdom of Italy, existed at the moment. The three powers have to make a plan to develop their own cities and battle against other powers, until one of them conquers all the cities on the map.
