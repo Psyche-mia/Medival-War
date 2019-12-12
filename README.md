@@ -1,5 +1,5 @@
 # Medival-War
-
+![screenshot](https://github.com/Psyche-mia/Medival-War/blob/master/Screenshots/a.png)
 @Author Jiao Shiqi | Xu Haoran | Wei Lai | Wang Tianying
 
 This is a group project website game.
